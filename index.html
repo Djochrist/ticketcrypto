@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TicketCrypto — Billetterie événementielle à Lubumbashi</title>
+  <meta name="description" content="Découvrez les événements de Lubumbashi, réservez vos billets et payez avec vos cryptos.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Polices Google : si elles ne se chargent pas, le CSS utilise des polices de secours -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#events">Aller aux événements</a>
+
+  <header>
+    <a class="logo" href="#" aria-label="TicketCrypto — accueil">◈ ticket<span>crypto</span></a>
+
+    <nav id="mainNav" aria-label="Navigation principale">
+      <a href="#events">Explorer</a>
+      <a href="#how">Comment ça marche</a>
+      <a href="#organizers">Organisateurs</a>
+    </nav>
+
+    <div class="actions">
+      <button id="favToggle" type="button" aria-pressed="false" aria-label="Afficher uniquement mes favoris">
+        <span aria-hidden="true">♡</span> <b id="favCount">0</b>
+      </button>
+      <a class="outline" href="#organizers">Créer un événement</a>
+      <button id="menu" class="menu" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mainNav">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div>
+        <small class="eyebrow">● LE FUTUR DE LA BILLETTERIE</small>
+        <h1>Vivez l'instant.<br><em>Payez autrement.</em></h1>
+        <p>Concerts, soirées, conférences… trouvez votre prochain moment inoubliable et payez simplement avec vos cryptos.</p>
+        <a class="primary" href="#events">Découvrir les événements ↗</a>
+        <a class="quiet" href="#how">Comment ça marche →</a>
+        <div class="proof">
+          <span aria-hidden="true">✦</span>
+          <span><b>Une nouvelle façon de sortir</b><small>Simple · Rapide · Sécurisée</small></span>
+        </div>
+      </div>
+
+      <div class="art" aria-hidden="true">
+        <div class="ticket">
+          <small>TICKETCRYPTO / LIVE　 <span>● DISPONIBLE</span></small>
+          <div class="photo"><img src="assets/images/events/neon-nights.svg" alt=""></div>
+          <div class="row">
+            <div><small>ÉVÉNEMENT</small><h3>Neon Nights</h3></div>
+            <div class="price"><small>À PARTIR DE</small><b>15 <span>USDT</span></b></div>
+          </div>
+          <hr>
+          <div class="row"><small>TC—2026—00841</small><div class="qr">▦</div></div>
+        </div>
+        <div class="chip">₮ <span><b>USDT</b><small>Paiement stable</small></span> ✓</div>
+        <div class="chip second">⌑ <span><b>Instantané</b><small>Ticket confirmé</small></span></div>
+      </div>
+    </section>
+
+    <!-- ===== CHIFFRES CLÉS ===== -->
+    <section class="stats">
+      <div><b>100%</b><small>Digital</small></div>
+      <div><b>QR</b><small>Billets vérifiables</small></div>
+      <div><b>USDT</b><small>Stablecoin</small></div>
+      <div><b>24/7</b><small>Réservation en ligne</small></div>
+    </section>
+
+    <!-- ===== ÉVÉNEMENTS ===== -->
+    <section id="events" class="section">
+      <div class="heading">
+        <div>
+          <small class="eyebrow">À NE PAS MANQUER</small>
+          <h2>La scène est à vous.</h2>
+          <p>Les événements qui font vibrer la ville.</p>
+        </div>
+        <a href="#events" id="all">Tout explorer ↗</a>
+      </div>
+
+      <div class="toolbar">
+        <label class="sr-only" for="search">Rechercher un événement</label>
+        <input id="search" type="search" placeholder="⌕  Rechercher un événement, un artiste…" autocomplete="off">
+        <div id="filters" role="group" aria-label="Filtrer par catégorie">
+          <button type="button" class="active" data-cat="Tous" aria-pressed="true">Tous</button>
+          <button type="button" data-cat="Musique" aria-pressed="false">♫ Musique</button>
+          <button type="button" data-cat="Festivals" aria-pressed="false">✦ Festivals</button>
+          <button type="button" data-cat="Conférences" aria-pressed="false">▤ Conférences</button>
+          <button type="button" data-cat="Nightlife" aria-pressed="false">◉ Nightlife</button>
+        </div>
+      </div>
+
+      <!-- Lu par les lecteurs d'écran quand la liste change -->
+      <p id="resultCount" class="sr-only" role="status" aria-live="polite"></p>
+
+      <div class="grid" id="grid" aria-busy="true">
+        <p class="loading">Chargement des événements…</p>
+      </div>
+
+      <div id="empty" class="empty hidden">
+        <span id="emptyText">Aucun événement trouvé.</span>
+        <button type="button" id="reset">Réinitialiser</button>
+      </div>
+    </section>
+
+    <!-- ===== COMMENT ÇA MARCHE ===== -->
+    <section id="how" class="section">
+      <div class="center heading">
+        <small class="eyebrow">EN 3 ÉTAPES</small>
+        <h2>Simple comme bonjour.</h2>
+        <p>Ton prochain événement est à quelques clics.</p>
+      </div>
+      <div class="steps">
+        <article><i aria-hidden="true">⌕</i><label>01</label><h3>Choisis ton événement</h3><p>Parcours, compare et sélectionne celui qui te donne envie.</p></article>
+        <article><i aria-hidden="true">₮</i><label>02</label><h3>Paye en crypto</h3><p>Règle ton billet avec les cryptos prises en charge.</p></article>
+        <article><i aria-hidden="true">▦</i><label>03</label><h3>Reçois ton QR</h3><p>Ton billet digital arrive après confirmation du paiement.</p></article>
+      </div>
+    </section>
+
+    <!-- ===== ORGANISATEURS ===== -->
+    <section id="organizers" class="banner">
+      <small class="eyebrow">VOUS ORGANISEZ ?</small>
+      <h2>Votre événement.<br><em>Votre public. Sans friction.</em></h2>
+      <p>Vendez vos billets en ligne et simplifiez l'expérience de vos participants.</p>
+      <a class="primary" href="mailto:contact@ticketcrypto.example">Parlons de votre événement ↗</a>
+      <div class="decor" aria-hidden="true">TC ✦</div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#" aria-label="TicketCrypto — accueil">◈ ticket<span>crypto</span></a>
+    <small>© 2026 TicketCrypto. L'expérience continue.</small>
+    <div><a href="#how">Aide</a>　<a href="#organizers">Contact</a>　<a href="#">Conditions</a></div>
+  </footer>
+
+  <!-- ===== FENÊTRE DE RÉSERVATION ===== -->
+  <div class="backdrop hidden" id="modal">
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+      <button class="close" id="close" type="button" aria-label="Fermer la fenêtre">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Petit message temporaire (classe "toast" = style du CSS) -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/events.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" role="img" aria-label="Visuel de l'événement indisponible">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14141d"/><stop offset="1" stop-color="#2a1a4d"/></linearGradient>
+<linearGradient id="tk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8956ff"/><stop offset="1" stop-color="#c05ce9"/></linearGradient>
+</defs>
+<rect width="1000" height="600" fill="url(#bg)"/>
+<g transform="rotate(-8 500 300)"><path d="M330 220 H670 a20 20 0 0 1 20 20 v28 a32 32 0 0 0 0 64 v28 a20 20 0 0 1 -20 20 H330 a20 20 0 0 1 -20 -20 v-28 a32 32 0 0 0 0 -64 v-28 a20 20 0 0 1 20 -20 Z" fill="url(#tk)" opacity=".9"/>
+<path d="M500 262 L540 302 L500 342 L460 302 Z" fill="none" stroke="#fff" stroke-width="10" stroke-linejoin="round"/><path d="M500 282 L520 302 L500 322 L480 302 Z" fill="#fff"/></g>
+</svg>
